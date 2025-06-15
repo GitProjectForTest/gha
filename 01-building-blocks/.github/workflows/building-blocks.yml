@@ -1,0 +1,27 @@
+name: 01 - Building Blocks
+
+on: 
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:  # Allows manual triggering of the workflow 
+
+jobs:
+  echo-goodbye:
+    runs-on: windows-latest
+    steps:
+      - name: Allow scripts to run
+        shell: powershell
+        run: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
+
+      - name: Successful step
+        run: |
+          echo "I will succeed"
+          exit 0
+
+      - name: Say goodbye
+        run: echo "Goodbye!"
+        

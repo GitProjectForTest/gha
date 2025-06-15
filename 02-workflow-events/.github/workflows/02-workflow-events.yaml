@@ -1,0 +1,14 @@
+name: 02-Workflow Events
+
+on: push
+
+jobs:
+    echo:
+      runs-on: windows-latest
+      steps:
+        - name: Allow scripts to run
+          shell: powershell
+          run: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
+          
+        - name: Show the trigger
+          run: echo "I have been triggered by a ${{ github.event_name }} event"
