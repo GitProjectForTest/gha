@@ -1,0 +1,19 @@
+name: 03 - workflow runner
+
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    echo:
+        runs-on: windows-latest
+        steps:
+            - name: Allow scripts to run
+              shell: powershell
+              run: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
+
+            - name: Show OS
+              run: |
+                echo "This job is running on windows runner"
+                echo "Runner OS: ${{ runner.os }}"
