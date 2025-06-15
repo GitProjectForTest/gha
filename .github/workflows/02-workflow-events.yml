@@ -17,4 +17,3 @@ jobs:
 
         - name: Show the trigger
           run: echo "I have been triggered by a ${{ github.event_name }} event"
-          
